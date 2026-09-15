@@ -1,0 +1,1516 @@
+/* ==========================================
+   AUTHENTICATION PAGES (LOGIN & SIGNUP)
+   ========================================== */
+
+/* FULL-SCREEN CENTERING CONTAINER */
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #0D1725;
+    margin: 0;
+    padding: 20px;
+}
+
+/* CENTERED CARD WITH SMOOTH CURVED BORDERS AND PADDING */
+.auth-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px; /* SMOOTH CURVED BORDERS */
+    padding: 50px 45px;   /* GENEROUS PADDING INSIDE CARD */
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* LOGO STYLING */
+.auth-logo {
+    font-family: "azonix", sans-serif;
+    font-size: 38px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+/* MAIN HEADINGS (AZONIX) */
+.auth-card h2 {
+    font-family: "azonix", sans-serif;
+    color: #FFFFFF;
+    font-size: 26px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+/* FORM LAYOUT */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* INPUT LABELS (NEXA 800 BOLD) */
+.form-group label {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    color: #19B5E5;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+}
+
+/* INPUT FIELDS (NEXA 200 NORMAL) */
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px; /* SMOOTH CURVED INPUT BOXES */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #FFFFFF;
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #19B5E5;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 12px rgba(25, 181, 229, 0.3);
+}
+
+/* SUBMIT BUTTON (NEXA 800 BOLD) */
+.auth-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: #19B5E5;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px; /* SMOOTH CURVED BUTTON */
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #1598c2;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(25, 181, 229, 0.4);
+}
+
+/* SWITCH LINK TEXT (NEXA 200 NORMAL & 800 BOLD) */
+.auth-switch {
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
+.auth-switch a {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    color: #19B5E5;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.auth-switch a:hover {
+    color: #FFFFFF;
+}
+
+
+
+a.product-card,
+a.cat-card,
+a.gallery-card {
+    text-decoration: none;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 9px; /* ACCOMMODATES FIXED HEADER HEIGHT WHEN SCROLLING TO SECTIONS */
+}
+
+
+@font-face {
+    font-family:"azonix";
+src: url("FONTS/Azonix.otf");
+}
+
+@font-face {
+    font-family: "nexa";
+    src: url("FONTS/Nexa-Heavy.ttf");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "nexa";
+    src: url("FONTS/Nexa-ExtraLight.ttf");
+    font-weight: 200;
+}
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #0D1725;
+    overflow-x: hidden;
+}
+
+.first-page {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    padding: 170px 60px 60px 60px; /* INCREASED TOP PADDING TO PUSH CONTENT CLEAR OF FIXED HEADER */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+    margin-bottom: 120px;
+}
+/* =========================
+   HEADER
+========================= */
+
+.welcome-text {
+    font-family: 'azonix', sans-serif;
+    color: #FFFFFF;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+
+.header {
+    width: 100%;                          /* FIXED INVALID '300' TO '100%' */
+    height: 130px;
+    position: fixed;                     /* CHANGED FROM relative TO fixed */
+    top: 0;
+    left: 0;
+    z-index: 1000;                       /* KEEPS HEADER ABOVE ALL OTHER CONTENT */
+    background: linear-gradient(
+        to bottom,
+        #0D1725 5%,
+        #264068 300%,
+        transparent 400px
+    );
+    transition: transform 0.4s ease-in-out; /* CREATES THE SMOOTH SLIDE ANIMATION */
+}
+
+/* ADD THIS RIGHT BELOW .header IN STYLES.CSS */
+.header.nav-hidden {
+    transform: translateY(-100%);        /* SLIDES HEADER UP OUT OF VIEW */
+}
+
+
+/* =========================
+   ATRION LOGO
+========================= */
+
+.A {
+color: #19B5E5;
+background-color: transparent;
+}
+
+.TRION {
+    color: white;
+    background-color: transparent;
+}
+
+.LOGO {
+    position: absolute;
+    left: 60px;
+    top: 40px;
+    font-size: 60px;
+    font-family: "azonix";
+    letter-spacing: 17px;
+    background-color: transparent;
+}
+
+
+/* =========================
+   TOP NAVIGATION
+========================= */
+
+.top-navigation {
+    position: absolute;
+    right: 79px;
+    top: 33px;
+    display: flex;
+    gap: 65px;
+    align-items: center;
+    background-color: transparent;
+}
+
+.top-navigation a.login {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #003444;
+    border-radius: 6px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.top-navigation a.login:hover {
+    background-color: #19B5E5;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+
+/* =========================
+   MAIN NAVIGATION
+========================= */
+
+.main-navigation {
+    position: absolute;
+    right: 60px;
+    bottom: 20px;
+    background-color: transparent;
+    display: flex;
+    gap: 40px;
+}
+
+
+.main-navigation a,
+.top-navigation a {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    font-family: "nexa";
+    font-weight: 200;
+    transition: all 0.3s ease;
+}
+
+.top-navigation a:hover,
+.main-navigation a:hover {
+    font-weight: 800;
+    color: #19B5E5;
+}
+
+/*LALOM SA NAV*/
+
+.content {
+    font-family: "nexa";
+    font-weight: 200;
+    height: auto;
+    max-width: 500px;
+    margin-bottom: 30px;
+    z-index: 2;
+    background-color: transparent;
+    overflow: visible;
+}
+
+
+.gradient {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 600px;
+}
+
+.gradient img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* STRETCHES AND FILLS FULL CONTAINER WITHOUT SCROLLBARS */
+    display: block;
+    background-color: transparent;
+}
+
+
+.tagline {
+    font-family: "azonix";
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    background-color: transparent;
+}
+
+
+.luxury {
+    color: #19B5E5;
+    background-color: transparent;
+}
+
+
+.bold {
+    font-family: "nexa";
+    color: white;
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    background-color: transparent
+}
+
+.description {
+    font-size: 25px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 30px;
+    background-color: transparent
+}
+
+.lux {
+    font-size: 25px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 60px;
+    background-color: transparent
+
+}
+
+.kani {
+    font-weight: 800;
+    background-color: transparent
+}
+
+
+.group {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background-color: transparent
+}
+
+.shoppie, .explore {
+    display: inline-block;
+    font-size: 25px;
+    background-color: #19B5E5;
+    color: #ffffff;
+    padding: 13px 25px;
+    text-decoration: none;
+    font-family: "Nexa", sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.shoppie:hover {
+    background-color: #00b652;
+    font-size: 26px;
+    transition: all 0.3s ease;
+}
+
+.explore:hover {
+    background-color: rgba(25, 181, 229, 0.2);
+    border-color: #19B5E5;
+}
+
+.image {
+    position: absolute;
+    z-index: 2;
+    right: -380px;
+    top: 150px;
+    background-color: transparent
+}
+
+.image img {
+    width: 1200px;
+    height: auto;
+    display: block;
+    background-color: transparent
+}
+
+
+/* =========================
+   BACKGROUND COVER LAYER
+========================= */
+
+.back {
+    position: absolute;
+    bottom: -230px;
+    left: 0;
+    width: 100%;
+    height: 200px; /* HEIGHT OF THE DARK BACKGROUND STRIP */
+    z-index: 4; /* SITS BEHIND FEATURES AND ATHLETE IMAGE */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================
+   FEATURES CONTAINER
+========================= */
+
+.features {
+    position: absolute;
+    bottom: -145px; /* ANCHORED TO THE BOTTOM OF THE FIRST PAGE */
+    left: 50%;
+    transform: translateX(-50%); /* HORIZONTALLY CENTERS THE BAR */
+    display: flex;
+    gap: 200px; /* SPACING BETWEEN EACH ITEM */
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 10;
+    background-color: transparent;
+}
+
+/* INDIVIDUAL FEATURE ITEM (ICON + TEXT) */
+.authentic,
+.worldwide,
+.warranty,
+.payment {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: transparent;
+}
+
+/* FEATURE ICON IMAGES */
+.features img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    display: block;
+    background-color: transparent;
+}
+
+/* STACKED TEXT FORMATTING */
+.features .text {
+    display: flex;
+    flex-direction: column;
+    font-family: "azonix", sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    background-color: transparent;
+}
+
+
+
+/* =========================
+  END OF FIRST PAGE
+========================= */
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   SECOND PAGE STARTS HEREEEEEEEEEEEEEEE
+========================= */
+
+.second-page {
+    position: relative;
+    width: 100%;
+    min-height: 160vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 100px 100px 80px 100px;
+    background-color: #0D1725;
+    z-index: 2;
+    overflow: visible;
+    margin-top: 0;
+}
+
+/* =========================
+   BACKGROUND ELEMENTS (LEFT SIDE)
+========================= */
+
+/* 1. GRADIENT / NET BACKGROUND */
+.back-sliding-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background-color: transparent;
+    overflow: visible;
+}
+
+.back-sliding-gradient img {
+    width: 167%;
+    height: auto;
+    object-fit: cover;
+    display: show;
+}
+
+/* 2. PADDLE & BALL FEATURED IMAGE */
+.pikol {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 45%;
+    max-width: 600px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.pikol img {
+    width: 90%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* =========================
+   RIGHT SIDE FOREGROUND CONTENT
+========================= */
+
+.bestseller-right {
+    position: relative;
+    z-index: 3;
+    width: 50%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -50 0px;
+}
+
+/* HEADERS */
+.bestseller-header {
+    margin-bottom: 35px;
+}
+
+.sub-heading {
+    font-family: "azonix" ,sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    letter-spacing: 2px;
+
+}
+
+.main-heading {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 55px;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   PRODUCT GRID & CARDS
+========================= */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* CREATES 2 EQUAL COLUMNS */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    column-gap: 120px;
+    row-gap: 50px;
+}
+
+/* REMOVE PREVIOUS GRID AREA ASSIGNMENTS SO ALL CARDS BEHAVE IDENTICALLY */
+.card-1st,
+.card-2nd,
+.card-3rd,
+.card-4th {
+    grid-area: auto;
+    width: 100%;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.rank {
+    font-family: "azonix", sans-serif;
+    font-size: 30px;
+    color: #19B5E5;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* FORCES ALL CARDS TO HAVE PERFECT EQUAL SQUARE DIMENSIONS */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #0a2332;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CROPS ALL 4 PADDLE IMAGES TO EXACT EQUAL SIZES */
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   THIRD PAGE HEREEEEEEEEEEEEEE
+========================= */
+
+.third-page {
+    position: relative;
+    z-index: 5;
+    margin-top: -111px;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0D1725;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 80px;
+    overflow: hidden;
+}
+
+/* =========================
+   BLUE BANNER BACKGROUND
+========================= */
+
+.banner-bg {
+    position: absolute;
+    top: 49%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto; /* ADJUST HEIGHT OF THE CYAN/BLUE STRIP */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.banner-bg img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================
+   FOREGROUND CONTENT LAYOUT
+========================= */
+
+.third-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* =========================
+   LEFT VIP CARD
+========================= */
+
+.vip-card {
+    position: relative;
+    background-color: #0a2332;
+    border: 2px solid #19B5E5;
+    border-radius: 25px;
+    padding: 40px 35px;
+    left: -80px;
+    width: 380px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.vip-card .sub-title {
+    font-family: "azonix", sans-serif;
+    font-size: 18px;
+    color: #19B5E5;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.vip-card h2 {
+    font-family: "nexa", sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+.app-btn {
+    display: inline-block;
+    background-color: #19B5E5;
+    color: #ffffff;
+    font-family: "nexa";
+    font-size: 20px;
+    font-weight: 800;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.app-btn:hover {
+    background-color: #1598c2;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RIGHT SPLIT BALL GRAPHIC & TEXT
+========================= */
+
+.ball-container {
+    position: relative;
+    /* CHANGE THIS WIDTH TO RESIZE BOTH THE BALL AND OVERLAY TEXT */
+    width: 320px; /* E.G., REDUCE FROM 450px TO 320px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-ball-img {
+    width: 240%; /* LETS THE IMAGE FILL THE BALL CONTAINER EXACTLY */
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* TEXT CENTERED IN THE SPLIT GAP OF THE BALL */
+.overlay-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.yellow-text-sm {
+    font-family: "azonix", sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: #e5ff00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+.yellow-text-lg {
+    font-family: "azonix", sans-serif;
+    font-size: 75px;
+    font-weight: 900;
+    color: #e5ff00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+/* =========================
+   BOTTOM CAPTION
+========================= */
+
+.bottom-caption {
+    position: absolute;
+    bottom: 120px;
+    left: 130px;
+    font-family: "nexa";
+    font-weight: 200;
+    font-size: 25px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+
+
+
+
+
+/* ==========================================
+   FOURTH PAGE STYLES
+   ========================================== */
+   .fourth-page {
+    position: relative;
+    width: 100%;
+    min-height: 120vh;
+    background-color: #0D1725;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    overflow: hidden;
+}
+
+/* HANDSHAKE BACKGROUND */
+.fourth-page .handshake-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.35; /* ADJUST TRANSPARENCY OF HANDSHAKE BG */
+}
+
+
+.fourth-page .handshake-bg img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* TOP CONTENT FLEXBOX */
+.fourth-top {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* MODEL CARD (LEFT) */
+.model-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px 30px 15px 15px;
+    gap: -30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    /* ALLOWS THE HEAD TO POP OUT OVER THE TOP BORDER */
+}
+
+
+.model-img {
+    height: 300px;          /* MAKES THE IMAGE BIGGER (WAS 260px) */
+    object-fit: contain;
+    position: relative;
+    top: -40px;             /* SHIFTS THE IMAGE UP TO OVERLAP TOP BORDER */
+    margin-bottom: -55px;   /* KEEPS THE BOTTOM ALIGNED INSIDE THE CARD */
+}
+
+.model-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #FFFFFF;
+    font-family: "azonix";
+    font-size: 16px;
+    letter-spacing: 4px;
+    padding-bottom: 20px;
+}
+
+/* RIGHT HEADING TEXT */
+.fourth-heading {
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 600px;
+}
+
+.fourth-heading h2 {
+    font-family: "nexa";
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+
+.fourth-heading .cyan-text {
+    color: #19B5E5;
+}
+
+
+.fourth-heading p {
+    font-family: "nexa";
+    font-weight: 200;
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+/* BOTTOM CATEGORIES */
+.fourth-bottom {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.category-item :hover {
+transform: translateY(-6px);
+box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
+}
+
+
+.cat-title {
+    font-family: "azonix";
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.cat-card {
+    width: 100%;
+    height: 180px;
+    background-color: #121E2D;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.cat-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+    border-color: rgba(25, 181, 229, 0.6);
+}
+
+.cat-card:hover img {
+    transform: scale(1.08);
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   FIFTH PAGE STYLES
+   ========================================== */
+   .fifth-page {
+    position: relative;
+    width: 100%;
+    min-height: 150vh;
+    background-color: #0D1725;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 80px;
+    overflow: hidden;
+}
+
+.fifth-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.25;
+}
+
+.fifth-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fifth-container {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* TOP SECTION */
+.fifth-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feedback-text {
+    color: #FFFFFF;
+    max-width: 500px;
+}
+
+.feedback-text h2 {
+    font-family: "nexa";
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.feedback-text p {
+    font-family: "nexa";
+    font-weight: 200;
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.feedback-text .tagline {
+    margin-top: 25px;
+    color: #ffffff;
+}
+
+/* LADY CARD */
+.lady-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 20px 0 30px;
+    width: 450px;
+    height: 220px;
+    overflow: visible;
+}
+
+.lady-caption {
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    color: #fcfcfc;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    
+    text-align: center; /* THIS DOES THE CTRL+E CENTER ALIGNMENT */
+    flex: 1;            /* ENSURES IT TAKES UP THE AVAILABLE LEFT SPACE TO CENTER PROPERLY */
+}
+
+.lady-img {
+    height: 300px;
+    position: relative;
+    top: -20px;
+    margin-bottom: -20px;
+    object-fit: contain;
+    z-index: 5;
+}
+
+/* 4 RECTANGLE GALLERY */
+.fifth-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    
+    transform: translateY(30px); /* MOVES ONLY THIS GRID 30px DOWNWARD */
+    transition: transform 0.3s ease;
+}
+
+.gallery-card {
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    
+    /* ADD SMOOTH TRANSITION FOR THE CARD LIFT */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+
+
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    /* ADD SMOOTH TRANSITION FOR THE IMAGE ZOOM */
+    transition: transform 0.4s ease;
+}
+
+
+.gallery-card:hover {
+    transform: translateY(-8px); /* LIFTS CARD UPWARD */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); /* DEEPENS DROP SHADOW */
+    border-color: rgba(25, 181, 229, 0.6); /* LIGHTS UP BORDER WITH CYAN ACCENT */
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08); /* SMOOTHLY ZOOMS IN IMAGE */
+}
+
+/* FOOTER SECTION */
+.fifth-footer {
+    position: relative;
+    width: 100vw;
+    height: 240px;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 50px;
+    
+    background-image: url('images/fifth/background.png');
+    background-repeat: repeat;
+    background-position: center;
+    opacity: 0.9;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+    font-family: "azonix";
+    letter-spacing: 7px;
+    font-size: 47px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-info p a {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-info .icon {
+    font-weight: bold;
+    color: #19B5E5;
+}
+
+
+.social-icon {
+    width: 28px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+.sponsors-title {
+    font-family: "azonix", sans-serif;
+    font-size: 25px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px 30px;
+    align-items: center;
+    justify-items: center;
+}
+
+.sponsor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-item:hover {
+    transform: translateY(-4px);
+}
+
+.sponsor-item img {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* MAKES ALL LOGO IMAGES PURE WHITE */
+}
+
+.sponsor-item span {
+    color: #FFFFFF;
+    font-family: "Arial", sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* COPYRIGHT */
+.copyright {
+    position: absolute;
+    bottom: -68px;         /* ADJUST THIS NUMBER TO PUSH IT LOWER OR HIGHER */
+    left: 50%;
+    transform: translateX(-50%); /* CENTERS IT HORIZONTALLY */
+    
+    font-family: "nexa", sans-serif;
+    letter-spacing: 3px;
+    font-weight: 200;
+    font-size: 25px;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+
+
+
+
+/* LAINGGGG BAHINNNNN WHOOOOOOO */
+
+
+/* ==========================================
+   APPAREL PAGE STYLES (CENTERED)
+   ========================================== */
+
+   .apparel-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 170px 60px 80px 60px;
+    background-color: #0D1725;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* CENTERS FILTER BUTTONS & GRID HORIZONTALLY */
+    justify-content: flex-start;
+}
+
+.apparel-header-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* CATEGORY FILTER BUTTONS */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.filter-btn {
+    font-family: "azonix", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #19B5E5;
+    color: #FFFFFF;
+    border-color: #19B5E5;
+    box-shadow: 0 5px 15px rgba(25, 181, 229, 0.3);
+}
+
+/* CENTERED PRODUCT CATALOG GRID */
+.apparel-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* CENTERS THE CARDS WITHIN THE CONTAINER */
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.apparel-card {
+    width: 300px; /* FIXED WIDTH FOR EQUAL CENTERING */
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apparel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(25, 181, 229, 0.2);
+    border-color: rgba(25, 181, 229, 0.4);
+}
+
+.apparel-img-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #0a2332;
+}
+
+.apparel-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.apparel-card:hover .apparel-img-box img {
+    transform: scale(1.08);
+}
+
+.apparel-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.item-cat {
+    font-family: "azonix", sans-serif;
+    font-size: 11px;
+    color: #19B5E5;
+    letter-spacing: 1.5px;
+}
+
+.apparel-info h3 {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.item-price {
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.shoppie-sm {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    background-color: #19B5E5;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.shoppie-sm:hover {
+    background-color: #00b652;
+}

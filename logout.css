@@ -1,0 +1,107 @@
+/* ==========================================
+   LOGOUT PAGE STYLES (LOGOUT.CSS)
+   ========================================== */
+
+/* CONTAINER & CENTERED LAYOUT */
+body.logout-page {
+    margin: 0;
+    padding: 0;
+    background-color: #0D1725;
+    font-family: 'nexa', sans-serif;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.logout-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* LOGO & TYPOGRAPHY */
+.logout-logo {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.logout-logo .A {
+    color: #19B5E5;
+}
+
+.logout-logo .TRION {
+    color: #FFFFFF;
+}
+
+.logout-title {
+    font-family: 'azonix', sans-serif;
+    font-size: 18px;
+    color: #19B5E5;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.logout-message {
+    font-size: 13px;
+    color: #CCCCCC;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+/* ACTION BUTTONS */
+.logout-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-confirm {
+    width: 100%;
+    padding: 12px;
+    background-color: #FF4D4D;
+    border: none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-family: 'nexa', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-confirm:hover {
+    background-color: #e03838;
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-family: 'nexa', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}

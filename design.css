@@ -1,0 +1,379 @@
+@font-face {
+    font-family: 'nexa';
+    src: url('FONTS/Nexa-Bold.otf') format('opentype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'nexa';
+    src: url('FONTS/Nexa-Light.otf') format('opentype');
+    font-weight: 200;
+}
+
+body {
+    font-family: 'nexa', sans-serif;
+    font-weight: 200;
+    background-color: #0b131f;
+    color: #ffffff;
+    padding: 40px;
+    margin: 0;
+}
+
+h1, h2, h3, h4, th, strong {
+    font-family: 'nexa', sans-serif;
+    font-weight: 800;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #333333;
+    margin-bottom: 30px;
+}
+
+a {
+    color: #00d2ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    position: relative;
+    color: #ffffff;
+    right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.dashboard-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background: #142235;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.data-table {
+    width: 100%;
+    border: 1px solid #142235;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.data-table th, 
+.data-table td {
+    padding: 12px;
+    border: 1px solid #142235;
+}
+
+.data-table thead tr {
+    background: #142235;
+    color: #00d2ff;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+}
+
+/* NEW DASHBOARD SPECIFIC STYLES */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-link {
+    position: relative;
+    font-weight: 800;
+    color: #ffffff;
+    right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.logout-link:hover {
+    color: red;
+}
+/* ========================================    DASHBOARD    ========================================== */
+
+
+
+
+
+
+
+
+/* ========================================    PRODUCTS    ========================================== */
+
+/* PRODUCT MANAGEMENT FORM STYLES */
+.btn-add {
+    background: #00d2ff;
+    color: #0b131f;
+    padding: 10px 15px;
+    font-weight: 800;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    background: #ffffff;
+}
+
+.form-card {
+    display: none;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background: #0b131f;
+    border: 1px solid #333333;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-save {
+    background: #00d2ff;
+    color: #0b131f;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: transparent;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #333333;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* ========================================    PRODUCTS    ========================================== */
+
+
+
+
+
+
+
+/* ========================================    CLIENTS   ========================================== */
+
+/* CLIENT PROFILE STYLES */
+.profile-card {
+    max-width: 450px;
+    margin-bottom: 30px;
+}
+
+.status-badge {
+    color: #00d2ff;
+    font-weight: 800;
+}
+
+
+
+
+/* ========================================    FETCH_CLIENT_ORDERS   ========================================== */
+
+/* MODAL OVERLAY STYLES */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #0d1a2d;
+    border: 1px solid #19B5E5;
+    padding: 25px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+    max-height: 85vh;
+    overflow-y: auto;
+    color: #fff;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #19B5E5;
+}
+
+.modal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.modal-table th, .modal-table td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    text-align: center;
+}
+
+.modal-table th {
+    background-color: #12233d;
+    color: #19B5E5;
+}
+
+
+
+
+
+/* ========================================    clientsmanager   ========================================== */
+
+
+/* VIEW ORDERS BUTTON STYLING */
+.view-orders-btn {
+    background-color: #19B5E5;
+    color: #0D1A2D;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 12px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.view-orders-btn:hover {
+    background-color: #159ac3;
+    transform: translateY(-1px);
+}
+
+/* CLIENT ORDERS MODAL OVERLAY */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #0d1a2d;
+    border: 1px solid #19B5E5;
+    padding: 25px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+    max-height: 85vh;
+    overflow-y: auto;
+    color: #FFFFFF;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(25, 181, 229, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #19B5E5;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #FFFFFF;
+}
+
+
+
+
+
+
+/* ADD THESE STYLES TO YOUR design.css FILE */
+
+.image-manager-section {
+    background: #112233;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.image-manager-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.image-manager-card {
+    background: #0b1622;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+}
+
+.image-manager-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.image-manager-card input[type="file"] {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 11px;
+}
+
+.image-manager-card button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.image-manager-card button[type="submit"] {
+    background: #00bcd4;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.image-manager-card button[name="remove_image"] {
+    background: #ff4d4d;
+    color: #fff;
+}
